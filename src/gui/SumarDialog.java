@@ -10,8 +10,6 @@ import exceptions.PolinomioFaltanteException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import model.Monomio;
 
@@ -48,6 +46,7 @@ class SumarDialog extends JDialog{
         pnlAux2.add(this.crearPnlSumar(), BorderLayout.NORTH);
         pnlAux1.add(pnlAux2);
         super.add(pnlAux1);
+        super.setVisible(true);
     }
     
     private JPanel crearPnlPoli1() {
@@ -91,7 +90,7 @@ class SumarDialog extends JDialog{
             public void actionPerformed(ActionEvent ae) {
                 Monomio m = new Monomio(Integer.valueOf(SumarDialog.this.txtCoef2.getText()),Integer.valueOf(SumarDialog.this.txtExp2.getText()));
                 SumarDialog.this.controlador.agregarPoli2(m);
-                SumarDialog.this.lblPoli1.setText(SumarDialog.this.controlador.getPoli2().imprimirPolinomio());
+                SumarDialog.this.lblPoli2.setText(SumarDialog.this.controlador.getPoli2().imprimirPolinomio());
             }
         });
         

@@ -27,7 +27,15 @@ public class MainFrame extends JFrame{
         super("Polinomios v1.0");
         super.setSize(600, 400);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        super.setLayout(new BorderLayout());
+        super.setLayout(new FlowLayout());
+        super.add(crearReducir());
+        super.add(crearSumar());
+        super.add(crearRestar());
+        super.add(crearMultiplicar());
+        super.add(crearDividir());
+        super.add(crearResolver());
+        
+        super.setVisible(true);
     }
     
     private JPanel crearReducir() {
@@ -37,10 +45,10 @@ public class MainFrame extends JFrame{
         this.btnReducir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                new ReducirDialog();
+                new ReducirDialog(MainFrame.this,"Reducir");
             }
         });
-        
+        panel.add(this.btnReducir);
         return panel;
     }
     
@@ -51,9 +59,10 @@ public class MainFrame extends JFrame{
         this.btnSumar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                new SumarDialog();
+                new SumarDialog(MainFrame.this,"Sumar");
             }
         });
+        panel.add(this.btnSumar);
         return panel;
     }
     
@@ -64,10 +73,11 @@ public class MainFrame extends JFrame{
         this.btnRestar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                new RestarDialog();
+                new RestarDialog(MainFrame.this,"Restar");
             }
         });
         
+        panel.add(this.btnRestar);
         return panel;
     }
     
@@ -76,7 +86,7 @@ public class MainFrame extends JFrame{
         panel.setLayout(new FlowLayout());
         this.btnMultiplicar = new JButton("Multiplicar");
         this.btnMultiplicar.setEnabled(false);
-        
+        panel.add(this.btnMultiplicar);
         return panel;
     }
     
@@ -84,8 +94,8 @@ public class MainFrame extends JFrame{
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
         this.btnDividir = new JButton("Dividir");
-        this.btnMultiplicar.setEnabled(false);
-        
+        this.btnDividir.setEnabled(false);
+        panel.add(this.btnDividir);
         return panel;
     }
     
@@ -93,8 +103,16 @@ public class MainFrame extends JFrame{
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
         this.btnResolver = new JButton("Resolver");
-        this.btnMultiplicar.setEnabled(false);
+        this.btnResolver.setEnabled(false);
         
+        panel.add(this.btnResolver);
         return panel;
+    }
+}
+
+class Test {
+    public static void main(String[] args) {
+   
+        new MainFrame();
     }
 }
